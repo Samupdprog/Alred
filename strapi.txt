@@ -1,0 +1,441 @@
+# Manual de integración de contenidos y APIs en Strapi para el proyecto Alred
+
+Este manual te guía paso a paso para crear y estructurar todos los contenidos necesarios en Strapi, de modo que puedas migrar cada componente de tu web a consumir datos dinámicos desde la API de Strapi.  
+**Sigue el orden propuesto para asegurar que no se quede nada fuera.**
+
+---
+
+## 1. Instalación y configuración inicial de Strapi
+
+1. Instala Strapi (si no lo tienes):
+   ```bash
+   npx create-strapi-app@latest alred-cms --quickstart
+   ```
+2. Accede al panel de administración:  
+   http://localhost:1337/admin
+
+---
+
+## 2. Estructura de colecciones y componentes en Strapi
+
+### 2.1. Colecciones principales
+
+Crea las siguientes **colecciones** (Collection Types):
+
+- **Servicios** (`service`)
+- **Beneficios** (`benefit`)
+- **Dashboards** (`dashboard`)
+- **Precios** (`pricing`)
+- **Proceso de trabajo** (`process-step`)
+- **Casos de éxito** (`case-study`)
+- **Preguntas frecuentes** (`faq`)
+- **Contacto** (`contact`)
+- **Equipo** (`team-member`) *(si tienes sección de equipo)*
+- **Testimonios** (`testimonial`) *(si tienes testimonios)*
+
+---
+
+### 2.2. Componentes reutilizables
+
+Crea estos **componentes** (Components) en Strapi para campos repetibles o anidados:
+
+- **Icono** (`icon`):  
+  - `nombre` (string)
+  - `svg` (media o string)
+- **Botón** (`button`):  
+  - `texto` (string)
+  - `url` (string)
+  - `estilo` (opcional, string)
+- **Enlace Social** (`social-link`):  
+  - `plataforma` (string)
+  - `url` (string)
+  - `icono` (media o string)
+
+---
+
+## 3. Detalle de cada colección y campos recomendados
+
+### 3.1. Servicios (`service`)
+- **Título** (string)
+- **Descripción** (text)
+- **Icono** (media o componente `icon`)
+- **Orden** (integer)
+
+### 3.2. Beneficios (`benefit`)
+- **Título** (string)
+- **Descripción** (text)
+- **Icono** (media o componente `icon`)
+- **Orden** (integer)
+
+### 3.3. Dashboards (`dashboard`)
+- **Título** (string)
+- **Descripción** (text)
+- **Imagen** (media)
+- **Datos** (JSON o relación a otra colección si es complejo)
+- **Orden** (integer)
+
+### 3.4. Precios (`pricing`)
+- **Nombre del plan** (string)
+- **Precio** (string)
+- **Descripción** (text)
+- **Características** (component: lista de strings)
+- **Botón** (component: `button`)
+- **Orden** (integer)
+
+### 3.5. Proceso de trabajo (`process-step`)
+- **Título** (string)
+- **Descripción** (text)
+- **Icono** (media o componente `icon`)
+- **Orden** (integer)
+
+### 3.6. Casos de éxito (`case-study`)
+- **Título** (string)
+- **Descripción** (text)
+- **Imagen** (media)
+- **Enlace** (string)
+- **Cliente** (string)
+- **Resultados** (text)
+- **Orden** (integer)
+
+### 3.7. Preguntas frecuentes (`faq`)
+- **Pregunta** (string)
+- **Respuesta** (text)
+- **Orden** (integer)
+
+### 3.8. Contacto (`contact`)
+- **Título** (string)
+- **Descripción** (text)
+- **Email** (string)
+- **Teléfono** (string)
+- **Botón** (component: `button`)
+- **Redes sociales** (component: repeatable `social-link`)
+
+### 3.9. Equipo (`team-member`) *(opcional)*
+- **Nombre** (string)
+- **Cargo** (string)
+- **Foto** (media)
+- **Descripción** (text)
+- **Redes sociales** (component: repeatable `social-link`)
+
+### 3.10. Testimonios (`testimonial`) *(opcional)*
+- **Nombre** (string)
+- **Testimonio** (text)
+- **Foto** (media)
+- **Empresa** (string)
+
+---
+
+## 4. Instrucciones para crear cada colección en Strapi
+
+1. Entra en el panel de administración de Strapi.
+2. Ve a "Content-type Builder".
+3. Haz clic en "Create new collection type".
+4. Añade los campos según la estructura de arriba para cada colección.
+5. Guarda y repite para cada colección.
+
+---
+
+## 5. Permisos de la API
+
+1. Ve a "Settings" > "Roles" > "Public".
+2. Activa los permisos de `find` y `findOne` para cada colección que quieras exponer públicamente.
+3. Guarda los cambios.
+
+---
+
+## 6. Ejemplo de cómo importar la estructura de contenido para cada componente
+
+### Servicios (service)
+- Crea la colección `service` con los campos: título, descripción, icono, orden.
+
+### Beneficios (benefit)
+- Crea la colección `benefit` con los campos: título, descripción, icono, orden.
+
+### Dashboards (dashboard)
+- Crea la colección `dashboard` con los campos: título, descripción, imagen, datos, orden.
+
+### Precios (pricing)
+- Crea la colección `pricing` con los campos: nombre del plan, precio, descripción, características, botón, orden.
+
+### Proceso de trabajo (process-step)
+- Crea la colección `process-step` con los campos: título, descripción, icono, orden.
+
+### Casos de éxito (case-study)
+- Crea la colección `case-study` con los campos: título, descripción, imagen, enlace, cliente, resultados, orden.
+
+### Preguntas frecuentes (faq)
+- Crea la colección `faq` con los campos: pregunta, respuesta, orden.
+
+### Contacto (contact)
+- Crea la colección `contact` con los campos: título, descripción, email, teléfono, botón, redes sociales.
+
+### Equipo (team-member) *(opcional)*
+- Crea la colección `team-member` con los campos: nombre, cargo, foto, descripción, redes sociales.
+
+### Testimonios (testimonial) *(opcional)*
+- Crea la colección `testimonial` con los campos: nombre, testimonio, foto, empresa.
+
+---
+
+## 7. Resumen para importar estructuras de contenido en Strapi
+
+- Ve a "Content-type Builder" y crea cada colección con los campos indicados.
+- Usa componentes para listas repetibles (botones, enlaces sociales, características, etc.).
+- Configura los permisos de la API.
+- Añade contenido de ejemplo en cada colección para pruebas.
+
+---
+
+# Contenido de ejemplo para cada colección y campo en Strapi (proyecto Alred)
+
+A continuación tienes el contenido sugerido para poblar cada colección y campo en Strapi, siguiendo la estructura de tu web actual.  
+Puedes copiar y pegar estos datos en el panel de administración de Strapi para tener una base realista y funcional.
+
+---
+
+## Servicios (`service`)
+
+1.  
+- **Título:** Desarrollo Web  
+- **Descripción:** Creamos páginas web profesionales, modernas y optimizadas para tu negocio.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 1
+
+2.  
+- **Título:** Dashboards  
+- **Descripción:** Visualiza y controla tus datos clave con dashboards personalizados y atractivos.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 2
+
+3.  
+- **Título:** Automatización IA  
+- **Descripción:** Automatiza procesos y tareas con inteligencia artificial para ahorrar tiempo y recursos.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 3
+
+---
+
+## Beneficios (`benefit`)
+
+1.  
+- **Título:** Diseño moderno  
+- **Descripción:** Interfaces atractivas y actuales que transmiten profesionalidad.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 1
+
+2.  
+- **Título:** Optimización SEO  
+- **Descripción:** Tu web lista para posicionar en Google desde el primer día.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 2
+
+3.  
+- **Título:** Soporte personalizado  
+- **Descripción:** Te acompañamos en cada paso, antes, durante y después del lanzamiento.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 3
+
+---
+
+## Dashboards (`dashboard`)
+
+1.  
+- **Título:** Ventas Mensuales  
+- **Descripción:** Evolución de ingresos en los últimos 6 meses  
+- **Imagen:** (sube una imagen de ejemplo del dashboard)  
+- **Datos:**  
+```json
+[
+  { "month": "Ene", "value": 32000 },
+  { "month": "Feb", "value": 28000 },
+  { "month": "Mar", "value": 45000 },
+  { "month": "Abr", "value": 38000 },
+  { "month": "May", "value": 52000 },
+  { "month": "Jun", "value": 41000 }
+]
+```
+- **Orden:** 1
+
+---
+
+## Precios (`pricing`)
+
+1.  
+- **Nombre del plan:** Básico  
+- **Precio:** €499  
+- **Descripción:** Ideal para negocios que quieren presencia online profesional.  
+- **Características:**  
+  - 1 página principal  
+  - Diseño responsive  
+  - Optimización SEO básica  
+  - Soporte por email  
+- **Botón:**  
+  - **Texto:** Contratar  
+  - **URL:** /contacto  
+- **Orden:** 1
+
+2.  
+- **Nombre del plan:** Avanzado  
+- **Precio:** €999  
+- **Descripción:** Para empresas que necesitan más funcionalidades y personalización.  
+- **Características:**  
+  - Hasta 5 páginas  
+  - Integración con redes sociales  
+  - Formularios personalizados  
+  - Soporte prioritario  
+- **Botón:**  
+  - **Texto:** Contratar  
+  - **URL:** /contacto  
+- **Orden:** 2
+
+3.  
+- **Nombre del plan:** Premium  
+- **Precio:** €1499  
+- **Descripción:** Solución completa con automatización y dashboards.  
+- **Características:**  
+  - Páginas ilimitadas  
+  - Dashboard personalizado  
+  - Automatización IA  
+  - Consultoría estratégica  
+- **Botón:**  
+  - **Texto:** Contratar  
+  - **URL:** /contacto  
+- **Orden:** 3
+
+---
+
+## Proceso de trabajo (`process-step`)
+
+1.  
+- **Título:** Análisis  
+- **Descripción:** Estudiamos tu negocio y objetivos para definir la mejor estrategia digital.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 1
+
+2.  
+- **Título:** Diseño  
+- **Descripción:** Creamos prototipos y propuestas visuales alineadas con tu marca.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 2
+
+3.  
+- **Título:** Desarrollo  
+- **Descripción:** Programamos tu web o dashboard con las últimas tecnologías.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 3
+
+4.  
+- **Título:** Lanzamiento  
+- **Descripción:** Publicamos tu proyecto y te acompañamos en el proceso de lanzamiento.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 4
+
+5.  
+- **Título:** Optimización  
+- **Descripción:** Analizamos resultados y mejoramos continuamente tu presencia digital.  
+- **Icono:** (sube el SVG o imagen correspondiente)  
+- **Orden:** 5
+
+---
+
+## Casos de éxito (`case-study`)
+
+1.  
+- **Título:** Transformación digital para Tienda XYZ  
+- **Descripción:** Rediseño completo de la web y automatización de pedidos.  
+- **Imagen:** (sube una imagen del proyecto)  
+- **Enlace:** https://tiendaxyz.com  
+- **Cliente:** Tienda XYZ  
+- **Resultados:** +40% ventas online en 3 meses  
+- **Orden:** 1
+
+2.  
+- **Título:** Dashboard de ventas para Empresa ABC  
+- **Descripción:** Implementación de dashboard interactivo para seguimiento de KPIs.  
+- **Imagen:** (sube una imagen del dashboard)  
+- **Enlace:** https://empresaabc.com  
+- **Cliente:** Empresa ABC  
+- **Resultados:** Decisiones más rápidas y mejor control de objetivos  
+- **Orden:** 2
+
+---
+
+## Preguntas frecuentes (`faq`)
+
+1.  
+- **Pregunta:** ¿Cuánto tarda el desarrollo de una web?  
+- **Respuesta:** El plazo habitual es de 2 a 4 semanas, dependiendo de la complejidad y los requisitos.  
+- **Orden:** 1
+
+2.  
+- **Pregunta:** ¿Puedo modificar mi web después de lanzarla?  
+- **Respuesta:** Sí, ofrecemos soporte y mantenimiento para que puedas actualizar tu web cuando lo necesites.  
+- **Orden:** 2
+
+3.  
+- **Pregunta:** ¿Qué incluye el servicio de automatización IA?  
+- **Respuesta:** Incluye la integración de herramientas inteligentes para automatizar tareas repetitivas y mejorar la eficiencia de tu negocio.  
+- **Orden:** 3
+
+---
+
+## Contacto (`contact`)
+
+- **Título:** Comienza tu transformación digital hoy  
+- **Descripción:** Agenda una consulta gratuita y descubre el potencial de tu negocio  
+- **Email:** info@alred.com  
+- **Teléfono:** +34 600 123 456  
+- **Botón:**  
+  - **Texto:** Agenda tu consulta gratuita  
+  - **URL:** /contacto  
+- **Redes sociales:**  
+  1.  
+    - **Plataforma:** LinkedIn  
+    - **URL:** https://linkedin.com/company/alred  
+    - **Icono:** (sube el SVG o imagen correspondiente)  
+  2.  
+    - **Plataforma:** Twitter  
+    - **URL:** https://twitter.com/alred  
+    - **Icono:** (sube el SVG o imagen correspondiente)  
+  3.  
+    - **Plataforma:** Instagram  
+    - **URL:** https://instagram.com/alred  
+    - **Icono:** (sube el SVG o imagen correspondiente)  
+
+---
+
+## Equipo (`team-member`) *(opcional)*
+
+1.  
+- **Nombre:** Samuel García  
+- **Cargo:** CEO & Fundador  
+- **Foto:** (sube la foto)  
+- **Descripción:** Apasionado por la tecnología y el diseño digital.  
+- **Redes sociales:**  
+  - **Plataforma:** LinkedIn  
+  - **URL:** https://linkedin.com/in/samuelgarcia  
+  - **Icono:** (sube el SVG o imagen correspondiente)  
+
+---
+
+## Testimonios (`testimonial`) *(opcional)*
+
+1.  
+- **Nombre:** Laura Pérez  
+- **Testimonio:** “El equipo de Alred superó nuestras expectativas. La web es rápida, moderna y fácil de usar.”  
+- **Foto:** (sube la foto)  
+- **Empresa:** Tienda XYZ  
+
+2.  
+- **Nombre:** Carlos Ruiz  
+- **Testimonio:** “Gracias al dashboard ahora tenemos el control total de nuestras ventas.”  
+- **Foto:** (sube la foto)  
+- **Empresa:** Empresa ABC  
+
+---
+
+**Recuerda:**  
+- Sube los iconos e imágenes correspondientes en cada campo de tipo media.
+- Puedes personalizar los textos y añadir más ejemplos según tus necesidades.
+
+Cuando termines de cargar estos datos en Strapi, avísame y te ayudo a conectar cada componente de React con la API de Strapi.
