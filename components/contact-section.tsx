@@ -14,7 +14,7 @@ export function ContactSection() {
     {
       icon: Mail,
       title: "Correo electrónico",
-      value: "contacto@alredweb.com",
+      value: "alredspd@gmail.com",
       action: "Enviar email",
     },
     {

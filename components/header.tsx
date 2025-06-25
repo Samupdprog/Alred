@@ -20,9 +20,6 @@ export function Header() {
   const navItems = [
     { name: "Inicio", href: "#inicio" },
     { name: "Servicios", href: "#servicios" },
-    { name: "Planes", href: "#planes" },
-    { name: "Casos de éxito", href: "#casos" },
-    { name: "Sobre nosotros", href: "#sobre" },
     { name: "Contacto", href: "#contacto" },
   ]
 
@@ -36,7 +33,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="text-2xl font-bold text-[#e60023] hover:scale-110 transition-transform duration-300 cursor-pointer">
-              Alred
+              <img className="pt-2" src="/Logo_Alred.svg" alt="Logo" />
             </div>
           </div>
 

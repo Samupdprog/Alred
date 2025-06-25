@@ -6,44 +6,36 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="text-2xl font-bold text-[#e60023] mb-4">Alred</div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Tu aliado en páginas web, dashboards y automatización con IA. Diseñamos experiencias digitales
-              profesionales, modernas y estéticas.
+              Impulsamos la digitalización de pequeñas empresas y autónomos con soluciones a medida.
             </p>
             <div className="text-sm text-gray-500">© 2025 Alred. Todos los derechos reservados.</div>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Servicios</h4>
+            <h4 className="text-white font-semibold mb-4">Contacto:</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <a href="#servicios" className="hover:text-[#e60023] transition-colors">
-                  Desarrollo Web
-                </a>
-              </li>
-              <li>
-                <a href="#servicios" className="hover:text-[#e60023] transition-colors">
-                  Dashboards
-                </a>
-              </li>
-              <li>
-                <a href="#servicios" className="hover:text-[#e60023] transition-colors">
-                  Automatización IA
-                </a>
-              </li>
+              <li>Email: alredspd@gmail.com</li>
+              <li>Teléfono: +34 683 382 977</li>
+              <li>Ubicación: España - Canarias</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Empresa</h4>
+            <h4 className="text-white font-semibold mb-4">Enlaces útiles:</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a href="#sobre" className="hover:text-[#e60023] transition-colors">
-                  Sobre nosotros
+                <a href="#servicios" className="hover:text-[#e60023] transition-colors">
+                  Servicios
                 </a>
               </li>
               <li>
-                <a href="#casos" className="hover:text-[#e60023] transition-colors">
-                  Casos de éxito
+                <a href="#proceso" className="hover:text-[#e60023] transition-colors">
+                  Proceso
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-[#e60023] transition-colors">
+                  Preguntas frecuentes
                 </a>
               </li>
               <li>
@@ -52,6 +44,12 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div className="col-span-1 md:col-span-2">
+            <p className="text-gray-400 mb-4 max-w-md ">
+              ¿Tienes una idea? Escríbenos y te ayudamos a hacerla realidad.
+            </p>
           </div>
         </div>
       </div>

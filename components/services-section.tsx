@@ -33,7 +33,7 @@ export function ServicesSection() {
         "Gestión de clientes y proveedores: base de datos centralizada, filtros y búsquedas avanzadas",
         "Informes automatizados: recibe reportes periódicos por email o en tu propia plataforma",
       ],
-      buttonText: "Ver demo",
+      buttonText: "Contactanos",
       gradient: "from-blue-500/20 to-[#e60023]/20",
     },
     {
@@ -46,7 +46,7 @@ export function ServicesSection() {
         "Análisis predictivo: toma decisiones basadas en datos y machine learning",
         "Integraciones: conecta tu web y tu dashboard con CRM, ERP y otras herramientas",
       ],
-      buttonText: "Descubre cómo",
+      buttonText: "Automatiza tu negocio",
       gradient: "from-purple-500/20 to-[#e60023]/20",
     },
   ]
@@ -111,11 +111,14 @@ export function ServicesSection() {
                   ))}
                 </ul>
                 <Button
+                  asChild
                   variant="outline"
                   className="w-full bg-transparent border-[#e60023] text-[#e60023] hover:bg-[#e60023] hover:text-white group/button transform hover:scale-105 transition-all duration-300"
                 >
-                  {service.buttonText}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform duration-300" />
+                  <a href="#contacto">
+                    {service.buttonText}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform duration-300" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
