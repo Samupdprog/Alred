@@ -6,7 +6,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="text-2xl font-bold text-[#e60023] mb-4">Alred</div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Impulsamos la digitalización de pequeñas empresas y autónomos con soluciones a medida.
+              Impulsamos la digitalización de pequeñas empresas y autónomos con soluciones a medida en toda Canarias.
             </p>
             <div className="text-sm text-gray-500">© 2025 Alred. Todos los derechos reservados.</div>
           </div>
@@ -16,7 +16,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-gray-400">
               <li>Email: alredspd@gmail.com</li>
               <li>Teléfono: +34 683 382 977</li>
-              <li>Ubicación: España - Canarias</li>
+              <li>Ubicación: Canarias - Tenerife</li>
             </ul>
           </div>
 

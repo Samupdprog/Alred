@@ -1,28 +1,23 @@
 import type { Metadata } from 'next'
+import React from "react"
 import './globals.css'
 import Script from 'next/script'
+import { CookieBanner } from "@/components/cookie-banner"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://alred.es'),
-  title: 'Alred | Soluciones Web, Automatización e IA en Tenerife',
-  description: 'Alred: expertos en desarrollo web, automatización de procesos e inteligencia artificial en Tenerife. Impulsa tu empresa con tecnología innovadora.',
-  generator: 'Alred',
+  title: 'Desarrollo Web y Automatizaciones en Canarias | Alred',
+  description: 'Especialistas en desarrollo web, automatizaciones empresariales e inteligencia artificial en Canarias. Digitaliza tu empresa con Alred.',
   keywords: [
-    'soluciones web',
-    'automatización',
-    'inteligencia artificial',
-    'IA',
-    'Tenerife',
-    'desarrollo web',
-    'empresa tecnológica',
-    'automatizaciones',
-    'n8n',
-    'digitalización',
-    'Canarias'
+    'desarrollo web canarias',
+    'automatizaciones empresariales canarias',
+    'n8n canarias',
+    'automatización de procesos canarias',
+    'digitalización empresas canarias'
   ],
   openGraph: {
-    title: 'Alred | Soluciones Web, Automatización e IA en Tenerife',
-    description: 'Expertos en desarrollo web, automatización e inteligencia artificial para empresas en Tenerife y Canarias.',
+    title: 'Alred | Desarrollo Web y Automatizaciones en Canarias',
+    description: 'Soluciones web, automatización e inteligencia artificial para empresas en Canarias.',
     url: 'https://alred.es',
     siteName: 'Alred',
     locale: 'es_ES',
@@ -40,16 +35,48 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="es">
       <head>
         <link rel="icon" href="/Logo_Alred.svg" />
+        <Script
+          type="application/ld+json"
+          id="localbusiness-schema"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Alred",
+              url: "https://alred.es",
+              logo: "https://alred.es/Logo_Alred.svg",
+              description: "Especialistas en desarrollo web y automatizaciones empresariales en Canarias.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Santa Cruz de Tenerife",
+                addressRegion: "Canarias",
+                addressCountry: "ES",
+              },
+              areaServed: ["Canarias"],
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  name: "Desarrollo web en Canarias"
+                },
+                {
+                  "@type": "Offer",
+                  name: "Automatizaciones empresariales en Canarias"
+                }
+              ]
+            }),
+          }}
+        />
       </head>
       <body>
         {children}
+        <CookieBanner />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-54NPY81TN8"

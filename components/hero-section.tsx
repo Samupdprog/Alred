@@ -52,8 +52,7 @@ export function HeroSection() {
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            En Alred creamos tu presencia online y optimizamos tu operación interna con dashboards intuitivos y flujos
-            de trabajo automatizados, potenciados por inteligencia artificial.
+            En Alred, con sede en Tenerife, creamos tu presencia online en Canarias y optimizamos tu operación interna con dashboards intuitivos y flujos de trabajo automatizados, potenciados por inteligencia artificial.
           </p>
 
           <div

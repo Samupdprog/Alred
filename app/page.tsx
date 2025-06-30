@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
+import { SEOContent } from "@/components/seo-content"
 import { ServicesSection } from "@/components/services-section"
 import { BenefitsSection } from "@/components/benefits-section"
 import { PricingSection } from "@/components/pricing-section"
