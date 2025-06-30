@@ -111,12 +111,12 @@ export function ContactSection() {
             <p className="text-gray-400 mb-6 max-w-md mx-auto">
               Agenda una consulta gratuita y descubre el potencial de tu negocio
             </p>
-            <Button
-              size="lg"
-              className="bg-[#e60023] hover:bg-[#c5001e] text-white px-8 py-4 text-lg font-semibold rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[#e60023]/30"
+            <a
+              href="#contacto"
+              className="bg-[#e60023] hover:bg-[#c5001e] text-white px-8 py-4 text-lg font-semibold rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[#e60023]/30 inline-block"
             >
               Agenda tu consulta gratuita
-            </Button>
+            </a>
           </div>
         </div>
       </div>

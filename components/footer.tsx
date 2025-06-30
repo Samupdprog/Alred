@@ -29,11 +29,6 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#proceso" className="hover:text-[#e60023] transition-colors">
-                  Proceso
-                </a>
-              </li>
-              <li>
                 <a href="#faq" className="hover:text-[#e60023] transition-colors">
                   Preguntas frecuentes
                 </a>

@@ -43,18 +43,21 @@ export function ContactForm() {
     setStatus("loading")
     setMessage("")
     try {
-      const res = await fetch("https://alred.es/node-red/formulario-web", {
+      const res = await fetch("https://alred.es/n8n/webhook/formulario_web", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
-      if (!res.ok) throw new Error("Error al enviar el formulario")
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error("Error al enviar el formulario: " + errorText);
+      }
       setStatus("success")
       setMessage("¡Gracias! Hemos recibido tu mensaje y te contactaremos pronto.")
       form.reset()
-    } catch (err) {
+    } catch (err: any) {
       setStatus("error")
-      setMessage("Hubo un problema al enviar el formulario. Intenta de nuevo en unos minutos.")
+      setMessage("Hubo un problema al enviar el formulario: " + (err.message || ""));
     }
   }
 
